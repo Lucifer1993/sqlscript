@@ -197,7 +197,7 @@ echo -e "\e[36m========================================\e[40m"
 
 #对于重要的目录或者文件，如果设为所有的用户可读写，则很容易造成数据泄露或者破坏。
 echo -e "\e[34m存在全局可写的文件或者目录-检查\e[40m"
-CMD=`find / -maxdepth 3 -type d -perm -2`
+CMD=`find / -maxdepth 2 -type d -perm -2`
 echo -e "\e[37m可写目录输出信息: \n$CMD\e[40m"
 echo -e "\e[36m========================================\e[40m"
 
@@ -264,6 +264,9 @@ echo -e "\e[34m打开日志审计-检查\e[40m"
 CMD=`service syslog status`
 echo -e "\e[32m[+]执行命令..service syslog status,检查syslog状态\e[40m"
 echo -e "\e[37m输出信息: \n$CMD\e[40m"
+CMD=`service rsyslog status`
+echo -e "\e[32m[+]执行命令..service rsyslog status,检查rsyslog状态\e[40m"
+echo -e "\e[37m输出信息: \n$CMD\e[40m"
 CMD=`service audit status`
 echo -e "\e[32m[+]执行命令..service audit status,检查audit状态\e[40m"
 echo -e "\e[37m输出信息: \n$CMD\e[40m"
@@ -274,7 +277,7 @@ echo -e "\e[36m========================================\e[40m"
 
 #审计内容应包括重要用户行为、系统资源的异常使用和重要系统命令的使用等系统内重要的安全相关事件
 echo -e "\e[34m审计内容-检查\e[40m"
-files=("/etc/audit/filter.conf" "/etc/syslog.conf" "/etc/audit/audit.conf")
+files=("/etc/audit/filter.conf" "/etc/syslog.conf" "/etc/audit/audit.conf" "/etc/rsyslog.conf")
 for file in ${files[@]}
 do
     if [ ! -f $file ]; then
