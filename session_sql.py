@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')
 headers = {
     "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
     "Content-Type":"application/x-www-form-urlencoded",
-    "Referer":"http://wxtest.cic.cn/CICWechat/weixin/newtask.do?mhd=toList&orderFid=.C_TASK_STATE&orderType=asc",
+    "Referer":"http://example.com/newtask.do?mhd=toList&orderFid=.C_TASK_STATE&orderType=asc",
 }
 
 f=open(r'cookies.txt','r')
